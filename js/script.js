@@ -17,14 +17,14 @@ const getImage = async (URLAddress) => {
   try {
     const result = await fetch(URLAddress)
     const jsonData = await result.json()
-    console.log(jsonData)
+    console.log(jsonData.results[0].url)
     document.getElementById("api-image").innerHTML =
     '<img src="' + 
-      jsonData.url + 
-      '" alt="API image" class="center" ' +
+      jsonData.results[0].url + 
+      '" alt="API image" class="center" width="40%" ' +
       '>'
     if (jsonData.artist_url != "none") {
-      document.getElementById("image-artist").innerHTML =
+      document.getElementById("artist-name").innerHTML =
       "<p>Artist: " +
       '<a href="' +
       jsonData.artist_url +
@@ -32,11 +32,11 @@ const getImage = async (URLAddress) => {
       jsonData.artist +
       "</a>"
   } else {
-    document.getElementById("image-artist").innerHTML = "<p>Artist: unknown</p>"
+    document.getElementById("artist-name").innerHTML = "<p>Artist: unknown</p>"
   }
   } catch (err) {
     console.log(err)
   }
 }
 
-getImage("https://api.genshin.dev")
+getImage("https://nekos.best/api/v2/neko")
