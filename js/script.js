@@ -8,7 +8,7 @@
  * Check servie worker.
  */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/Assignment-6", {
+  navigator.serviceWorker.register("/Assignment-6/sw.js", {
     scope: "/Assignment-6/",
   });
 }
